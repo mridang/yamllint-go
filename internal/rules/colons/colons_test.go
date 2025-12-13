@@ -58,7 +58,7 @@ func TestColonsRule(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			rule := &Rule{}
 			config := tt.config
-			
+
 			require.NotNil(t, config)
 			require.Equal(t, "colons", rule.ID())
 			require.Equal(t, "token", rule.Type())

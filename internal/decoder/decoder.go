@@ -18,18 +18,18 @@ func (d *Decoder) Decode(v interface{}) error {
 
 func (d *Decoder) DecodeAll(fn func(interface{}) error) error {
 	decoder := yaml.NewDecoder(yaml.NewDecoder(nil))
-	
+
 	for {
 		var doc interface{}
 		err := decoder.Decode(&doc)
 		if err != nil {
 			break
 		}
-		
+
 		if err := fn(doc); err != nil {
 			return err
 		}
 	}
-	
+
 	return nil
 }

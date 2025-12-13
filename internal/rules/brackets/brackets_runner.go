@@ -13,14 +13,14 @@ func (r *Runner) Run(tokens []*types.Token, lines []*types.Line, comments []*typ
 	// Start with default config
 	rule := &Rule{}
 	ruleConfig := rule.DefaultConfig()
-	
+
 	// Override with provided config
 	if val, ok := cfg["forbid"].(string); ok {
 		ruleConfig.Forbid = val
 	} else if val, ok := cfg["forbid"].(bool); ok {
 		ruleConfig.Forbid = val
 	}
-	
+
 	if val, ok := cfg["min-spaces-inside"].(int); ok {
 		ruleConfig.MinSpacesInside = val
 	}

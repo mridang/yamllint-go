@@ -60,7 +60,7 @@ func TestCommasRule(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			rule := &Rule{}
 			config := tt.config
-			
+
 			require.NotNil(t, config)
 			require.Equal(t, "commas", rule.ID())
 			require.Equal(t, "token", rule.Type())
