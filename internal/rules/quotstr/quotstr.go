@@ -10,10 +10,10 @@ import (
 )
 
 type Config struct {
-	QuoteType              string `yaml:"quote-type"`
-	RequiredOnlyForStrings bool   `yaml:"required"`
-	CheckKeys              bool   `yaml:"check-keys"`
-	AllowQuotedQuotes      bool   `yaml:"allow-quoted-quotes"`
+	QuoteType              string   `yaml:"quote-type"`
+	RequiredOnlyForStrings bool     `yaml:"required"`
+	CheckKeys              bool     `yaml:"check-keys"`
+	AllowQuotedQuotes      bool     `yaml:"allow-quoted-quotes"`
 	ExtraRequired          []string `yaml:"extra-required"`
 	ExtraAllowed           []string `yaml:"extra-allowed"`
 }

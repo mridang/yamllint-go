@@ -56,7 +56,7 @@ func TestNewLinesRule(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			rule := &Rule{}
 			config := tt.config
-			
+
 			require.NotNil(t, config)
 			require.Equal(t, "new-lines", rule.ID())
 			require.Equal(t, "line", rule.Type())

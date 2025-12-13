@@ -58,12 +58,12 @@ func check(t *testing.T, yamlContent string, confYAML string, problems ...types.
 		fmt.Printf("YAML:\n%s\n", yamlContent)
 		fmt.Printf("Config:\n%s\n", confYAML)
 		fmt.Printf("Expected %d problems, got %d\n\n", len(problems), len(actualProblems))
-		
+
 		fmt.Printf("EXPECTED:\n")
 		for i, p := range problems {
 			fmt.Printf("  [%d] Line=%d Col=%d Desc=%q\n", i, p.Line, p.Column, p.Desc)
 		}
-		
+
 		fmt.Printf("\nACTUAL:\n")
 		for i, p := range actualProblems {
 			fmt.Printf("  [%d] Line=%d Col=%d Desc=%q\n", i, p.Line, p.Column, p.Desc)

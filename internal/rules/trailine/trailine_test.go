@@ -15,9 +15,9 @@ func TestTrailingLinesRule(t *testing.T) {
 		expected []types.Problem
 	}{
 		{
-			name:     "too many blank lines at end",
-			yaml:     "---\nkey: value\n\n\n",
-			config:   Config{},
+			name:   "too many blank lines at end",
+			yaml:   "---\nkey: value\n\n\n",
+			config: Config{},
 			expected: []types.Problem{
 				{Line: 2, Column: 0, Desc: "too many blank lines at end of file (1 > 0)"},
 			},
@@ -35,9 +35,9 @@ func TestTrailingLinesRule(t *testing.T) {
 			expected: []types.Problem{},
 		},
 		{
-			name:     "multiple trailing blank lines",
-			yaml:     "---\nkey: value\n\n\n\n",
-			config:   Config{},
+			name:   "multiple trailing blank lines",
+			yaml:   "---\nkey: value\n\n\n\n",
+			config: Config{},
 			expected: []types.Problem{
 				{Line: 2, Column: 0, Desc: "too many blank lines at end of file (1 > 0)"},
 			},
@@ -48,7 +48,7 @@ func TestTrailingLinesRule(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			rule := &Rule{}
 			config := tt.config
-			
+
 			require.NotNil(t, config)
 			require.Equal(t, "trailing-lines", rule.ID())
 			require.Equal(t, "line", rule.Type())

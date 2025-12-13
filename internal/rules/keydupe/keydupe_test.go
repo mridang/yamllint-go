@@ -15,17 +15,17 @@ func TestKeyDuplicatesRule(t *testing.T) {
 		expected []types.Problem
 	}{
 		{
-			name: "duplicated key",
-			yaml: "---\nkey: value1\nkey: value2\n",
+			name:   "duplicated key",
+			yaml:   "---\nkey: value1\nkey: value2\n",
 			config: Config{},
 			expected: []types.Problem{
 				{Line: 2, Column: 0, Desc: "duplication of key \"key\" in mapping"},
 			},
 		},
 		{
-			name: "unique keys",
-			yaml: "---\nkey1: value1\nkey2: value2\n",
-			config: Config{},
+			name:     "unique keys",
+			yaml:     "---\nkey1: value1\nkey2: value2\n",
+			config:   Config{},
 			expected: []types.Problem{},
 		},
 		{
@@ -47,8 +47,8 @@ func TestKeyDuplicatesRule(t *testing.T) {
 			},
 		},
 		{
-			name: "nested mappings",
-			yaml: "---\nparent:\n  key: value1\n  key: value2\n",
+			name:   "nested mappings",
+			yaml:   "---\nparent:\n  key: value1\n  key: value2\n",
 			config: Config{},
 			expected: []types.Problem{
 				{Line: 3, Column: 2, Desc: "duplication of key \"key\" in mapping"},
@@ -60,7 +60,7 @@ func TestKeyDuplicatesRule(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			rule := &Rule{}
 			config := tt.config
-			
+
 			require.NotNil(t, config)
 			require.Equal(t, "key-duplicates", rule.ID())
 			require.Equal(t, "token", rule.Type())
