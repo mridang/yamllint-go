@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
+  "packages": {
+    "go":       "1.25",
+    "github:NixOS/nixpkgs/nixpkgs-unstable#golangci-lint": ""
+  },
+  "env": {
+    "GOMODCACHE": "$PWD/.go",
+    "GOROOT": ""
+  },
+  "shell": {
+    "init_hook": [
+      "go mod download"
+    ],
+    "scripts": {
+      "test":   "go test ./...",
+      "build":  "go build ./pkg/...",
+      "lint":   "golangci-lint run --fix",
+      "format": "go fmt ./..."
+    }
+  }
+}
