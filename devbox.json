@@ -6,7 +6,8 @@
   },
   "env": {
     "GOMODCACHE": "$PWD/.go",
-    "GOROOT": ""
+    "GOTOOLCHAIN": "local",
+    "GOROOT": null
   },
   "shell": {
     "init_hook": [
